@@ -1,35 +1,26 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, {name} from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
-import Date from '../components/date';
+import Preview from '../components/preview';
+import { getDataDivideByTheme, getDataDivideByTime } from '../lib/posts';
 
-export default function Home({ allPostsData }) {
+
+export default function Home({ dataDivideByTheme, dataDivideByTime, sortedPostsData }) {
   return (
-    <Layout home>
+    <Layout home theme={dataDivideByTheme} time={dataDivideByTime}>
       <Head>
-        <title>{siteTitle}</title>
+        <title>enderman's blog</title>
       </Head>
+
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <p>[Hello, this is enderman's blog that is being constructed!]</p>
       </section>
+
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
+          {sortedPostsData.map(Preview)}
         </ul>
       </section>
     </Layout>
@@ -37,10 +28,14 @@ export default function Home({ allPostsData }) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const sortedPostsData = getSortedPostsData();
+  const dataDivideByTheme = getDataDivideByTheme();
+  const dataDivideByTime = getDataDivideByTime();
   return {
     props: {
-      allPostsData,
+      dataDivideByTheme,
+      dataDivideByTime,
+      sortedPostsData,
     },
   };
 }

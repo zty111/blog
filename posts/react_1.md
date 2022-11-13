@@ -1,6 +1,7 @@
 ---
 title: 'react 第一日'
 date: '2022-11-08'
+theme: 'react'
 ---
 
 ## react 第一日

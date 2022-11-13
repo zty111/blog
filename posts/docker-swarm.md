@@ -1,6 +1,7 @@
 ---
 title: 'docker-swarm docker集群管理工具'
 date: '2022-11-06'
+theme: 'docker'
 ---
 
 swarm集群由管理节点和工作节点构成，管理节点负责集群配置、服务管理，工作节点运行服务来完成任务

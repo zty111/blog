@@ -1,6 +1,7 @@
 ---
 title: 'docker用法'
 date: '2022-11-06'
+theme: 'docker'
 ---
 
 对docker的相关命令做一个记录

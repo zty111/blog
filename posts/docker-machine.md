@@ -1,6 +1,7 @@
 ---
 title: 'docker machine 虚拟机docker'
 date: '2022-11-06'
+theme: 'docker'
 ---
 
 先安装docker，下使用virtualbox，可替换成云服务商

@@ -1,6 +1,7 @@
 ---
 title: '动画、流体仿真'
 date: '2022-11-07'
+theme: 'vcx'
 ---
 
 $F=ma$在流体中Navier-Stokes Equation
